@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서비스 · ENOMAD 이노마드</title>
+<meta name="description" content="ENOMAD 물류 서비스 전체 — FBA 항공·해상 포워딩, FDA 규제화물 통관, 미국 3PL 풀필먼트, 멕시코·중남미 물류, 미국 내 라스트마일.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/service.css">
+<style>
+.hub-hero{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.hub-hero .wrap{position:relative;z-index:2;padding:56px 28px 60px}
+.hub-hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,48px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:18px;max-width:720px}
+.hub-hero p{margin-top:16px;font-size:17px;color:#BFE0E5;max-width:580px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:.2s;display:block}
+.svc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal)}
+.svc .ic{width:42px;height:42px;border-radius:11px;background:rgba(59,156,173,.1);display:grid;place-items:center;color:var(--teal-deep);font-size:18px}
+.svc .idx{font-family:'Space Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:.1em;margin-top:14px}
+.svc h3{font-size:19px;font-weight:700;margin-top:12px;letter-spacing:-.01em}
+.svc .route{font-family:'Space Mono',monospace;font-size:12px;color:var(--mute);margin-top:6px}
+.svc p{margin-top:12px;font-size:14.5px;color:var(--mute);line-height:1.65}
+.svc .more{margin-top:16px;font-size:13.5px;font-weight:600;color:var(--teal-deep);display:inline-flex;gap:5px;align-items:center}
+.svc:hover .more{gap:9px}
+@media(max-width:920px){.svc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="../about.html">회사소개</a>
+      <a href="index.html" class="on">서비스</a>
+      <a href="../network.html">네트워크</a>
+      <a href="../resources/">자료실</a>
+      <a href="../contact/">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../contact/#track" class="btn btn-ghost">화물추적</a>
+      <a href="../contact/" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="../about.html">회사소개</a>
+  <a href="index.html">서비스</a>
+  <a href="../network.html">네트워크</a>
+  <a href="../resources/">자료실</a>
+  <a href="../contact/">문의</a>
+  <a href="../contact/" class="btn btn-solid">견적문의</a>
+</div>
+
+<section class="hub-hero">
+  <div class="bgline" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 400">
+      <g stroke="#3B9CAD" stroke-width="1" opacity=".08">
+        <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="300" x2="1200" y2="300"/>
+        <line x1="300" y1="0" x2="300" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/><line x1="900" y1="0" x2="900" y2="400"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html">HOME</a> / SERVICES</div>
+    <h1>출고에서 도착지까지,<br>끊김 없는 한 흐름</h1>
+    <p>한국 출발 포워딩부터 미국 통관, FBA·3PL 입고, 멕시코·중남미 라스트마일까지. 화주가 거래선을 여러 곳 둘 필요 없이 ENOMAD 한 곳에서 끝냅니다.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="svc-grid">
+      <a class="svc reveal" href="fba-air.html">
+        <div class="ic">✈</div><div class="idx">01 / AIR</div>
+        <h3>FBA 항공 포워딩</h3><div class="route">ICN → LAX / MIA</div>
+        <p>긴급·고회전 상품을 위한 항공 직송. FBA 입고까지 평균 3–6일.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc reveal" href="fba-ocean.html">
+        <div class="ic">🚢</div><div class="idx">02 / OCEAN</div>
+        <h3>FBA 해상 LCL / FCL</h3><div class="route">CBM 혼적 · 전용 컨테이너</div>
+        <p>대량·저회전 물량의 단가 최적화. LCL과 FCL을 물량에 맞춰 설계.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc reveal" href="fda.html">
+        <div class="ic">🧪</div><div class="idx">03 / FDA</div>
+        <h3>FDA 규제화물 통관</h3><div class="route">MoCRA · FSVP</div>
+        <p>화장품 MoCRA, 식품 FSVP 대응. 반려·억류 리스크를 사전 차단.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc reveal" href="fulfillment.html">
+        <div class="ic">📦</div><div class="idx">04 / 3PL</div>
+        <h3>미국 3PL 풀필먼트</h3><div class="route">LA Vernon · Miami Doral</div>
+        <p>동·서부 2거점 창고에서 보관·검수·라벨링. FBA 분할 입고와 B2C 출고.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc reveal" href="mexico.html">
+        <div class="ic">🌎</div><div class="idx">05 / LATAM</div>
+        <h3>멕시코·중남미 물류</h3><div class="route">Door-to-Door via LAX</div>
+        <p>멕시코시티 익스프레스와 K-Beauty B2B 도매. 중남미 진출 교두보.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc reveal" href="lastmile.html">
+        <div class="ic">🚚</div><div class="idx">06 / LAST-MILE</div>
+        <h3>미국 내 라스트마일</h3><div class="route">Silicon2 · RMK · BNS · PR Express</div>
+        <p>검증된 파트너 네트워크로 미국 전역. FBA 입고와 B2B·B2C 배송 연결.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>어떤 서비스가 맞을지 모르겠다면</h2>
+        <p>품목·물량·도착지만 알려주시면 최적 운송 방식을 비교해 제안합니다.</p>
+      </div>
+      <a href="../contact/" class="btn btn-amber">무료 견적 받기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko"> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="fba-air.html">FBA 항공</a>
+        <a href="fba-ocean.html">FBA 해상</a>
+        <a href="fda.html">FDA 통관</a>
+        <a href="fulfillment.html">3PL 풀필먼트</a>
+        <a href="mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="../about.html">회사소개</a>
+        <a href="../network.html">네트워크</a>
+        <a href="../resources/">자료실 (AI Lab)</a>
+        <a href="../contact/">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="../contact/">견적문의</a>
+        <a href="../contact/#track">화물추적</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.06)+'s';io.observe(el);});
+</script>
+</body>
+</html>

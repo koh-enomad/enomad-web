@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENOMAD · 한국에서 미국·멕시코까지, FDA까지 책임지는 풀필먼트 포워더</title>
+<meta name="description" content="ENOMAD(이노마드)는 한국→미국 Amazon FBA 항공·해상 포워딩, FDA 규제화물 통관(MoCRA·FSVP), 미국 LA·Miami 3PL 풀필먼트, 멕시코·중남미 물류를 제공하는 4개국 직영 지사망 글로벌 포워더입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#3B9CAD;
+  --teal-2:#4A9BAF;
+  --teal-deep:#1F6B79;
+  --teal-ink:#0E3B43;
+  --ink:#0C1416;
+  --paper:#F6F4EF;
+  --paper-2:#EFEBE2;
+  --line:#D9D3C7;
+  --amber:#E0883B;
+  --white:#fff;
+  --mute:#5C6B6E;
+  --shadow:0 1px 0 rgba(12,20,22,.04),0 18px 40px -24px rgba(12,20,22,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans KR',sans-serif;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;line-height:1.6;
+  overflow-x:hidden;
+}
+.mono{font-family:'Space Mono',monospace}
+.cond{font-family:'Archivo Narrow',sans-serif}
+.disp{font-family:'Archivo',sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.eyebrow{
+  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--teal-deep);font-weight:700;
+}
+
+/* ---------- HEADER ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(246,244,239,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:32px;height:68px}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.02em}
+.logo .mark{width:13px;height:13px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(59,156,173,.18)}
+.logo span{color:var(--teal-deep)}
+.nav-links{display:flex;gap:26px;margin-left:8px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--ink);opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{margin-left:auto;display:flex;gap:9px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px;padding:10px 16px;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap}
+.btn-ghost{border-color:var(--line);background:var(--white);color:var(--teal-deep)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-solid{background:var(--teal);color:#fff;box-shadow:0 8px 18px -8px rgba(59,156,173,.7)}
+.btn-solid:hover{background:var(--teal-deep)}
+.hamb{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
+.hamb span{display:block;width:18px;height:2px;background:var(--ink);margin:3px 0}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:var(--teal-ink);color:#EAF4F5;overflow:hidden}
+.hero-bg{position:absolute;inset:0;opacity:.9}
+.hero .wrap{position:relative;z-index:2;padding-top:78px;padding-bottom:96px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em;color:#fff}
+.hero h1 em{font-style:normal;color:#7FD4E0}
+.hero p.lead{margin-top:22px;font-size:17px;line-height:1.75;color:#BFE0E5;max-width:520px}
+.hero-cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-amber{background:var(--amber);color:#211004;box-shadow:0 10px 24px -10px rgba(224,136,59,.7)}
+.btn-amber:hover{filter:brightness(1.06)}
+.btn-line{border-color:rgba(255,255,255,.3);color:#EAF4F5}
+.btn-line:hover{border-color:#7FD4E0;color:#7FD4E0}
+.hero-tags{margin-top:30px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.04em;padding:6px 11px;border:1px solid rgba(127,212,224,.3);border-radius:99px;color:#9FD6DE}
+
+/* flight panel */
+.flight{position:relative;aspect-ratio:1/1;border:1px solid rgba(127,212,224,.22);border-radius:18px;background:
+  radial-gradient(120% 120% at 80% 10%,rgba(59,156,173,.22),transparent 55%),
+  rgba(8,40,46,.5);overflow:hidden}
+.flight svg{position:absolute;inset:0;width:100%;height:100%}
+.flight .label{position:absolute;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;color:#CFEAEE}
+.flight .label b{color:#fff;font-weight:700}
+.dot-ping{fill:#7FD4E0}
+.route-line{stroke:#5BBECB;stroke-width:1.4;stroke-dasharray:3 4;fill:none;opacity:.85}
+.route-solid{stroke:#7FD4E0;stroke-width:1.8;fill:none;stroke-dasharray:540;stroke-dashoffset:540;animation:draw 3s ease forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.plane{animation:fly 6s linear infinite}
+@keyframes fly{0%{opacity:0}8%{opacity:1}92%{opacity:1}100%{opacity:0}}
+
+/* ---------- STAT BAR ---------- */
+.statbar{background:var(--ink);color:#fff}
+.statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:0;padding:0}
+.stat{background:var(--ink);padding:26px 24px}
+.stat .n{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:34px;color:#7FD4E0;line-height:1}
+.stat .l{margin-top:7px;font-size:13.5px;color:#B9C6C8}
+
+/* ---------- SECTION SHELL ---------- */
+section{padding:88px 0}
+.sec-head{max-width:660px;margin-bottom:46px}
+.sec-head h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,40px);letter-spacing:-.02em;line-height:1.1;margin-top:14px}
+.sec-head p{margin-top:14px;color:var(--mute);font-size:16px}
+
+/* ---------- SERVICES ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:.2s;position:relative;overflow:hidden}
+.svc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal)}
+.svc .idx{font-family:'Space Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:.1em}
+.svc h3{font-size:19px;font-weight:700;margin-top:14px;letter-spacing:-.01em}
+.svc .route{font-family:'Space Mono',monospace;font-size:12px;color:var(--mute);margin-top:6px}
+.svc p{margin-top:12px;font-size:14.5px;color:var(--mute);line-height:1.65}
+.svc .more{margin-top:16px;font-size:13.5px;font-weight:600;color:var(--teal-deep);display:inline-flex;gap:5px;align-items:center}
+.svc:hover .more{gap:9px}
+.svc .ic{width:42px;height:42px;border-radius:11px;background:rgba(59,156,173,.1);display:grid;place-items:center;color:var(--teal-deep)}
+
+/* ---------- DIFF ---------- */
+.diff{background:var(--paper-2)}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.diff-card{border-top:2px solid var(--teal);padding-top:22px}
+.diff-card .k{font-family:'Space Mono',monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.08em}
+.diff-card h3{font-size:21px;font-weight:700;margin-top:10px;letter-spacing:-.01em}
+.diff-card p{margin-top:11px;color:var(--mute);font-size:15px}
+
+/* ---------- PROCESS ---------- */
+.proc{position:relative}
+.proc-track{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;margin-top:10px}
+.proc-track:before{content:"";position:absolute;top:23px;left:6%;right:6%;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 7px,transparent 7px 13px)}
+.step{position:relative;padding:0 10px;text-align:center}
+.step .dot{width:46px;height:46px;border-radius:50%;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin:0 auto;position:relative;z-index:2;font-family:'Archivo Narrow',sans-serif;font-weight:700;color:var(--teal-deep);font-size:18px}
+.step.on .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.step h4{font-size:14.5px;font-weight:600;margin-top:14px}
+.step p{font-size:12px;color:var(--mute);margin-top:4px;font-family:'Space Mono',monospace;letter-spacing:.02em}
+
+/* ---------- CLIENTS ---------- */
+.clients{background:var(--ink);color:#fff}
+.clients .sec-head h2{color:#fff}
+.clients .sec-head p{color:#9DAFB2}
+.logo-row{display:flex;flex-wrap:wrap;gap:14px}
+.client{border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:16px 22px;font-weight:600;font-size:16px;color:#D7E3E5;background:rgba(255,255,255,.03);letter-spacing:-.01em}
+
+/* ---------- RESOURCES ---------- */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.res{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--white);transition:.2s}
+.res:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+.res .tg{font-family:'Space Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.res h3{font-size:17.5px;font-weight:700;margin-top:10px}
+.res p{font-size:14px;color:var(--mute);margin-top:8px}
+.res .open{margin-top:14px;font-size:13px;font-weight:600;color:var(--teal-deep)}
+
+/* ---------- CTA ---------- */
+.cta-band{background:linear-gradient(105deg,var(--teal-deep),var(--teal));color:#fff;border-radius:22px;padding:54px 48px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;box-shadow:0 30px 60px -30px rgba(31,107,121,.7)}
+.cta-band h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.12}
+.cta-band p{margin-top:10px;color:#D9F0F3;font-size:15.5px}
+.cta-band .btn-amber{font-size:15px;padding:14px 24px}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:#9DAFB2;padding:60px 0 34px;border-top:1px solid rgba(255,255,255,.07)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.foot-grid h5{color:#fff;font-size:13px;letter-spacing:.04em;margin-bottom:14px;font-weight:600}
+.foot-grid a{display:block;font-size:14px;margin-bottom:9px;color:#9DAFB2;transition:.15s}
+.foot-grid a:hover{color:#7FD4E0}
+.foot-brand .logo{color:#fff;margin-bottom:14px}
+.foot-brand .logo span{color:#7FD4E0}
+.foot-brand p{font-size:13.5px;line-height:1.7;max-width:280px}
+.foot-bot{margin-top:42px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;font-family:'Space Mono',monospace;color:#6E8084}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:920px){
+  .nav-links{display:none}
+  .hamb{display:block}
+  .nav-cta{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .flight{max-width:420px}
+  .statbar .wrap{grid-template-columns:repeat(2,1fr)}
+  .svc-grid,.diff-grid,.res-grid{grid-template-columns:1fr}
+  .proc-track{grid-template-columns:repeat(2,1fr);gap:30px 0}
+  .proc-track:before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .wrap{padding:0 20px}
+  .cta-band{padding:36px 26px}
+}
+.mob-menu{display:none;position:fixed;inset:68px 0 0;background:var(--paper);z-index:49;padding:24px 28px;flex-direction:column;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 0;font-size:18px;font-weight:600;border-bottom:1px solid var(--line)}
+.mob-menu .btn{margin-top:16px;justify-content:center}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span style="font-weight:400;font-size:14px;opacity:.6;margin-left:2px">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="about.html">회사소개</a>
+      <a href="services/">서비스</a>
+      <a href="network.html">네트워크</a>
+      <a href="resources/">자료실</a>
+      <a href="contact/">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact/#track" class="btn btn-ghost">화물추적</a>
+      <a href="contact/" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="about.html">회사소개</a>
+  <a href="services/">서비스</a>
+  <a href="network.html">네트워크</a>
+  <a href="resources/">자료실</a>
+  <a href="contact/">문의</a>
+  <a href="contact/" class="btn btn-solid">견적문의</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 600">
+      <defs>
+        <radialGradient id="g1" cx="78%" cy="12%" r="60%">
+          <stop offset="0%" stop-color="#2C8595" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#0E3B43" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="600" fill="url(#g1)"/>
+      <g stroke="#3B9CAD" stroke-width="1" opacity=".08">
+        <line x1="0" y1="150" x2="1200" y2="150"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="450" x2="1200" y2="450"/>
+        <line x1="200" y1="0" x2="200" y2="600"/><line x1="500" y1="0" x2="500" y2="600"/><line x1="800" y1="0" x2="800" y2="600"/><line x1="1050" y1="0" x2="1050" y2="600"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" style="color:#7FD4E0">Korea → USA → Mexico · FDA Compliant Forwarder</div>
+        <h1>한국에서 미국·멕시코까지,<br><em>FDA까지</em> 책임지는<br>풀필먼트 포워더</h1>
+        <p class="lead">Amazon FBA 항공·해상 포워딩부터 FDA 규제화물 통관, LA·Miami 3PL 풀필먼트, 멕시코·중남미 라스트마일까지. 4개국 직영 지사망으로 단절 없는 글로벌 물류를 운영합니다.</p>
+        <div class="hero-cta">
+          <a href="contact/" class="btn btn-amber">무료 견적 받기 →</a>
+          <a href="services/" class="btn btn-line">서비스 살펴보기</a>
+        </div>
+        <div class="hero-tags">
+          <span class="tag">FBA AIR / OCEAN</span>
+          <span class="tag">MoCRA · FSVP</span>
+          <span class="tag">LA VERNON · MIAMI DORAL</span>
+          <span class="tag">MEXICO · LATAM</span>
+        </div>
+      </div>
+
+      <!-- FLIGHT PANEL (signature) -->
+      <div class="flight" aria-hidden="true">
+        <svg viewBox="0 0 420 420">
+          <!-- ICN node -->
+          <circle cx="86" cy="120" r="5" class="dot-ping"/>
+          <circle cx="86" cy="120" r="13" fill="none" stroke="#7FD4E0" stroke-width="1" opacity=".4"/>
+          <!-- LAX node -->
+          <circle cx="320" cy="250" r="4.5" fill="#5BBECB"/>
+          <!-- MIA node -->
+          <circle cx="350" cy="340" r="4.5" fill="#5BBECB"/>
+          <!-- routes -->
+          <path class="route-solid" d="M86,120 C170,140 250,180 320,250"/>
+          <path class="route-line" d="M86,120 C200,200 280,280 350,340"/>
+          <!-- plane glyph -->
+          <g class="plane">
+            <path d="M0,0 L14,5 L0,10 L3,5 Z" fill="#fff" transform="translate(195,178) rotate(34)"/>
+          </g>
+        </svg>
+        <div class="label" style="left:7%;top:24%"><b>ICN</b><br>Incheon</div>
+        <div class="label" style="left:70%;top:55%"><b>LAX</b><br>LA·Vernon</div>
+        <div class="label" style="left:76%;top:80%"><b>MIA</b><br>Doral</div>
+        <div class="label mono" style="left:7%;bottom:6%;color:#7FD4E0">EST. LEAD TIME<br><b style="font-size:15px">3–6 DAYS</b> · AIR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="statbar">
+  <div class="wrap">
+    <div class="stat"><div class="n">4</div><div class="l">직영 지사 (한국·중국·미국·멕시코)</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">미국 창고 (LA Vernon · Miami Doral)</div></div>
+    <div class="stat"><div class="n">FDA</div><div class="l">화장품·식품 규제화물 전문</div></div>
+    <div class="stat"><div class="n">70+</div><div class="l">취급 품목 카테고리</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Services</div>
+      <h2>판매에만 집중하세요.<br>물류는 ENOMAD가 끝까지 책임집니다.</h2>
+      <p>출고에서 미국 통관, FBA 입고와 3PL 보관, 멕시코 라스트마일까지. 화주가 거래선을 여러 곳 둘 필요 없이 한 곳에서 끝냅니다.</p>
+    </div>
+    <div class="svc-grid">
+      <a class="svc" href="services/fba-air.html">
+        <div class="ic">✈</div>
+        <div class="idx" style="margin-top:14px">01 / AIR</div>
+        <h3>FBA 항공 포워딩</h3>
+        <div class="route">ICN → LAX / MIA</div>
+        <p>긴급·고회전 상품을 위한 항공 직송. ICN 출발 LAX·MIA 도착, FBA 입고까지 평균 3–6일.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc" href="services/fba-ocean.html">
+        <div class="ic">🚢</div>
+        <div class="idx" style="margin-top:14px">02 / OCEAN</div>
+        <h3>FBA 해상 LCL / FCL</h3>
+        <div class="route">CBM 기준 혼적 · 전용 컨테이너</div>
+        <p>대량·저회전 물량의 단가 최적화. LCL 혼적과 FCL을 물량에 맞춰 설계합니다.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc" href="services/fda.html">
+        <div class="ic">🧪</div>
+        <div class="idx" style="margin-top:14px">03 / FDA</div>
+        <h3>FDA 규제화물 통관</h3>
+        <div class="route">MoCRA · FSVP</div>
+        <p>화장품 MoCRA, 식품 FSVP 대응. 규제화물 핸들링 경험으로 반려·억류 리스크를 차단합니다.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc" href="services/fulfillment.html">
+        <div class="ic">📦</div>
+        <div class="idx" style="margin-top:14px">04 / 3PL</div>
+        <h3>미국 3PL 풀필먼트</h3>
+        <div class="route">LA Vernon · Miami Doral</div>
+        <p>동·서부 2거점 창고에서 보관·검수·라벨링·재포장. FBA 분할 입고와 B2C 출고를 함께 운영합니다.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc" href="services/mexico.html">
+        <div class="ic">🌎</div>
+        <div class="idx" style="margin-top:14px">05 / LATAM</div>
+        <h3>멕시코·중남미 물류</h3>
+        <div class="route">Door-to-Door via LAX</div>
+        <p>멕시코시티 익스프레스 루트와 K-Beauty B2B 도매까지. 중남미 진출의 교두보를 제공합니다.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+      <a class="svc" href="services/lastmile.html">
+        <div class="ic">🚚</div>
+        <div class="idx" style="margin-top:14px">06 / LAST-MILE</div>
+        <h3>미국 내 라스트마일</h3>
+        <div class="route">Silicon2 · RMK · BNS · PR Express</div>
+        <p>검증된 파트너 네트워크로 미국 전역 배송. FBA 입고와 B2B·B2C 배송을 안정적으로 연결합니다.</p>
+        <span class="more">자세히 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="diff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why ENOMAD</div>
+      <h2>포워더는 많습니다.<br>FDA와 미국 동·서부를 동시에 잡는 곳은 드뭅니다.</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="k">01 — COMPLIANCE</div>
+        <h3>FDA 규제화물 전문</h3>
+        <p>화장품 MoCRA, 식품 FSVP 규제를 실무로 다룹니다. MSDS·위험물 분류 검토까지 사전 점검해 통관 단계의 사고를 줄입니다.</p>
+      </div>
+      <div class="diff-card">
+        <div class="k">02 — NETWORK</div>
+        <h3>4개국 직영 지사망</h3>
+        <p>한국 본사, 중국, 미국, 멕시코 직영 거점. 중간 브로커 없이 출발지부터 도착지까지 한 팀이 책임집니다.</p>
+      </div>
+      <div class="diff-card">
+        <div class="k">03 — COVERAGE</div>
+        <h3>미국 동·서부 + 중남미</h3>
+        <p>LA Vernon(서부)과 Miami Doral(동부/남부) 2거점으로 미국 전역을, 그리고 멕시코 루트로 중남미까지 커버합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it works</div>
+      <h2>견적부터 트래킹까지, 6단계</h2>
+      <p>각 단계의 담당과 진행 상황을 화주가 직접 확인할 수 있도록 운영합니다.</p>
+    </div>
+    <div class="proc-track">
+      <div class="step on"><div class="dot">1</div><h4>견적·접수</h4><p>QUOTE</p></div>
+      <div class="step"><div class="dot">2</div><h4>픽업·집하</h4><p>PICKUP</p></div>
+      <div class="step"><div class="dot">3</div><h4>항공·해상</h4><p>FREIGHT</p></div>
+      <div class="step"><div class="dot">4</div><h4>미국 통관</h4><p>CBP CLEAR</p></div>
+      <div class="step"><div class="dot">5</div><h4>FBA·3PL 입고</h4><p>INBOUND</p></div>
+      <div class="step"><div class="dot">6</div><h4>배송·추적</h4><p>TRACK</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:#7FD4E0">Trusted by</div>
+      <h2>K-브랜드의 미국 진출을 함께한 화주들</h2>
+      <p>화장품·뷰티디바이스·건강기능식품 등 FDA 규제 품목을 포함한 브랜드들이 ENOMAD와 함께합니다.</p>
+    </div>
+    <div class="logo-row">
+      <div class="client">케어젠</div>
+      <div class="client">그래피</div>
+      <div class="client">한국화장품</div>
+      <div class="client">피피넷</div>
+      <div class="client">바디프렌드</div>
+      <div class="client">보다나</div>
+      <div class="client">그레인온</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">ENOMAD AI Lab</div>
+      <h2>화주가 바로 쓰는 실무 도구</h2>
+      <p>견적 전에 직접 계산하고 검토하세요. ENOMAD가 운영에 쓰는 도구를 화주에게 그대로 공개합니다.</p>
+    </div>
+    <div class="res-grid">
+      <a class="res" href="resources/">
+        <div class="tg">Calculator</div>
+        <h3>운임 · 부피중량 계산기</h3>
+        <p>실중량과 부피중량(에어 6,000 / 특송 5,000)을 비교해 청구중량을 즉시 산출합니다.</p>
+        <div class="open">도구 열기 →</div>
+      </a>
+      <a class="res" href="resources/">
+        <div class="tg">Calculator</div>
+        <h3>미국 관세 계산기</h3>
+        <p>HS code별 관세율, Section 301, KORUS FTA 면세 여부를 FOB 기준으로 추정합니다.</p>
+        <div class="open">도구 열기 →</div>
+      </a>
+      <a class="res" href="resources/">
+        <div class="tg">Guide</div>
+        <h3>Amazon FBA 입고 가이드</h3>
+        <p>shipment plan 생성부터 카톤 라벨, FNSKU까지. 초보 셀러를 위한 단계별 가이드.</p>
+        <div class="open">가이드 보기 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>지금 견적을 요청하세요.</h2>
+        <p>발송 국가·플랫폼·품목·무게·CBM만 알려주시면, 영업일 기준 빠르게 회신드립니다.</p>
+      </div>
+      <a href="contact/" class="btn btn-amber">무료 견적 받기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="services/fba-air.html">FBA 항공</a>
+        <a href="services/fba-ocean.html">FBA 해상</a>
+        <a href="services/fda.html">FDA 통관</a>
+        <a href="services/fulfillment.html">3PL 풀필먼트</a>
+        <a href="services/mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="about.html">회사소개</a>
+        <a href="network.html">네트워크</a>
+        <a href="resources/">자료실 (AI Lab)</a>
+        <a href="contact/">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="contact/">견적문의</a>
+        <a href="contact/#track">화물추적</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>{mob.classList.toggle('open');});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+
+  // scroll-reveal for service / diff / res cards
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.svc,.diff-card,.res').forEach((el,i)=>{
+    el.style.opacity=0;el.style.transform='translateY(16px)';
+    el.style.transition='opacity .5s ease '+(i%3*.07)+'s, transform .5s ease '+(i%3*.07)+'s';
+    io.observe(el);
+  });
+
+  // animate process steps sequentially when in view
+  const pio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+    document.querySelectorAll('.step').forEach((s,i)=>setTimeout(()=>s.classList.add('on'),i*180));
+    pio.disconnect();
+  }})},{threshold:.4});
+  const pt=document.querySelector('.proc-track');if(pt)pio.observe(pt);
+</script>
+</body>
+</html>

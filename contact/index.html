@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문의 · 견적 요청 · ENOMAD 이노마드</title>
+<meta name="description" content="ENOMAD 물류 견적 문의. 발송 국가·플랫폼·품목·무게·CBM을 알려주시면 영업일 기준 빠르게 회신드립니다. FBA 입고요청, 화물추적, 일반 문의.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/service.css">
+<style>
+/* contact hero */
+.c-hero{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.c-hero .wrap{position:relative;z-index:2;padding:52px 28px 56px}
+.c-hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:18px;max-width:680px}
+.c-hero p{margin-top:15px;font-size:16.5px;color:#BFE0E5;max-width:560px}
+
+/* tabs */
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:34px;flex-wrap:wrap}
+.tab{padding:13px 20px;font-size:15px;font-weight:600;color:var(--mute);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.18s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.tab:hover{color:var(--teal-deep)}
+.tab.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+
+.panel{display:none}
+.panel.on{display:block}
+
+/* form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fld{display:flex;flex-direction:column;gap:7px}
+.fld.full{grid-column:1 / -1}
+.fld label{font-size:13.5px;font-weight:600;color:var(--teal-ink)}
+.fld label .req{color:var(--amber);margin-left:3px}
+.fld input,.fld select,.fld textarea{
+  font-family:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);
+  border-radius:10px;background:var(--white);color:var(--ink);transition:.15s;width:100%;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(59,156,173,.13)}
+.fld textarea{resize:vertical;min-height:110px}
+.fld .hint{font-size:12px;color:var(--mute);font-family:'Space Mono',monospace}
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.radio-chip{position:relative}
+.radio-chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.radio-chip span{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:99px;font-size:14px;font-weight:500;color:var(--mute);transition:.15s;background:var(--white)}
+.radio-chip input:checked + span{border-color:var(--teal);background:rgba(59,156,173,.1);color:var(--teal-deep);font-weight:600}
+.submit-row{margin-top:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{background:var(--teal);color:#fff;font-weight:700;font-size:15px;padding:14px 30px;border:none;border-radius:11px;cursor:pointer;transition:.18s;font-family:inherit;box-shadow:0 10px 24px -10px rgba(59,156,173,.7)}
+.btn-submit:hover{background:var(--teal-deep)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.form-note{font-size:13px;color:var(--mute)}
+
+/* success / error msg */
+.msg{display:none;padding:16px 18px;border-radius:12px;font-size:14.5px;margin-bottom:24px}
+.msg.ok{display:block;background:rgba(59,156,173,.1);border:1px solid var(--teal);color:var(--teal-deep)}
+.msg.err{display:block;background:#FBEAE0;border:1px solid var(--amber);color:#8A4A14}
+
+/* track box */
+.track-box{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:34px;text-align:center}
+.track-box .ic{width:54px;height:54px;border-radius:14px;background:rgba(59,156,173,.1);display:grid;place-items:center;margin:0 auto 16px;font-size:24px}
+.track-box h3{font-size:20px;font-weight:700}
+.track-box p{color:var(--mute);font-size:15px;margin-top:10px;max-width:440px;margin-left:auto;margin-right:auto}
+.track-form{margin-top:22px;display:flex;gap:10px;max-width:420px;margin-left:auto;margin-right:auto}
+.track-form input{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:15px}
+.track-form input:focus{outline:none;border-color:var(--teal)}
+
+/* contact info cards */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.info{border:1px solid var(--line);border-radius:13px;padding:22px;background:var(--white)}
+.info .k{font-family:'Space Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
+.info h4{font-size:16px;font-weight:700;margin-top:9px}
+.info p{font-size:14px;color:var(--mute);margin-top:6px}
+.info a{color:var(--teal-deep);font-weight:600}
+
+@media(max-width:760px){.form-grid,.info-grid{grid-template-columns:1fr}.track-form{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="../about.html">회사소개</a>
+      <a href="../services/">서비스</a>
+      <a href="../network.html">네트워크</a>
+      <a href="../resources/">자료실</a>
+      <a href="index.html" class="on">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#track" class="btn btn-ghost" id="navTrack">화물추적</a>
+      <a href="#quote" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="../about.html">회사소개</a>
+  <a href="../services/">서비스</a>
+  <a href="../network.html">네트워크</a>
+  <a href="../resources/">자료실</a>
+  <a href="index.html">문의</a>
+  <a href="#quote" class="btn btn-solid">견적문의</a>
+</div>
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="bgline" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 300">
+      <g stroke="#3B9CAD" stroke-width="1" opacity=".08">
+        <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
+        <line x1="300" y1="0" x2="300" y2="300"/><line x1="600" y1="0" x2="600" y2="300"/><line x1="900" y1="0" x2="900" y2="300"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html">HOME</a> / CONTACT</div>
+    <h1>견적 요청 &amp; 문의</h1>
+    <p>발송 국가·플랫폼·품목·무게·CBM만 알려주시면, 영업일 기준 빠르게 회신드립니다. 처음이라 정보가 부족해도 괜찮습니다 — 아는 만큼만 적어주세요.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab on" data-tab="quote">견적 문의</button>
+      <button class="tab" data-tab="fba">FBA 입고요청</button>
+      <button class="tab" data-tab="track">화물추적</button>
+      <button class="tab" data-tab="info">연락처</button>
+    </div>
+
+    <!-- ========== QUOTE PANEL ========== -->
+    <div class="panel on" id="panel-quote">
+      <div class="msg" id="quoteMsg"></div>
+      <!-- Formspree 폼 ID: mojzgaan (수신 메일은 Formspree 대시보드에서 설정) -->
+      <form id="quoteForm" action="https://formspree.io/f/mojzgaan" method="POST">
+        <input type="hidden" name="_subject" value="[ENOMAD] 견적 문의">
+        <input type="hidden" name="문의유형" value="견적 문의">
+        <div class="form-grid">
+          <div class="fld">
+            <label>담당자명<span class="req">*</span></label>
+            <input type="text" name="담당자명" required placeholder="홍길동">
+          </div>
+          <div class="fld">
+            <label>회사명</label>
+            <input type="text" name="회사명" placeholder="(주)이노마드">
+          </div>
+          <div class="fld">
+            <label>이메일<span class="req">*</span></label>
+            <input type="email" name="email" required placeholder="name@company.com">
+          </div>
+          <div class="fld">
+            <label>연락처</label>
+            <input type="tel" name="연락처" placeholder="010-0000-0000">
+          </div>
+
+          <div class="fld full">
+            <label>운송 방식<span class="req">*</span></label>
+            <div class="radio-row">
+              <label class="radio-chip"><input type="radio" name="운송방식" value="항공(FBA Air)" required><span>항공 (FBA Air)</span></label>
+              <label class="radio-chip"><input type="radio" name="운송방식" value="해상(FBA Ocean)"><span>해상 (FBA Ocean)</span></label>
+              <label class="radio-chip"><input type="radio" name="운송방식" value="멕시코·중남미"><span>멕시코·중남미</span></label>
+              <label class="radio-chip"><input type="radio" name="운송방식" value="미정·상담"><span>미정 / 상담 필요</span></label>
+            </div>
+          </div>
+
+          <div class="fld">
+            <label>발송지</label>
+            <input type="text" name="발송지" value="대한민국 (ICN)" placeholder="대한민국 (ICN)">
+          </div>
+          <div class="fld">
+            <label>도착지<span class="req">*</span></label>
+            <input type="text" name="도착지" required placeholder="예: 미국 FBA (ONT8), LA, 멕시코시티">
+          </div>
+
+          <div class="fld">
+            <label>품목 / 카테고리<span class="req">*</span></label>
+            <input type="text" name="품목" required placeholder="예: 화장품(스킨케어), 건강기능식품">
+          </div>
+          <div class="fld">
+            <label>FDA 규제 품목 여부</label>
+            <select name="FDA여부">
+              <option value="모름">잘 모름</option>
+              <option value="화장품(MoCRA)">화장품 (MoCRA)</option>
+              <option value="식품(FSVP)">식품 (FSVP)</option>
+              <option value="해당없음">해당 없음</option>
+            </select>
+          </div>
+
+          <div class="fld">
+            <label>총 중량 (kg)</label>
+            <input type="text" name="중량" placeholder="예: 320">
+            <span class="hint">실중량 기준</span>
+          </div>
+          <div class="fld">
+            <label>총 부피 (CBM) 또는 박스 수</label>
+            <input type="text" name="부피" placeholder="예: 2.4 CBM 또는 18박스">
+            <span class="hint">아는 값만</span>
+          </div>
+
+          <div class="fld full">
+            <label>요청사항</label>
+            <textarea name="요청사항" placeholder="희망 일정, 특이사항(배터리 내장·인화성 등), 기타 문의를 자유롭게 적어주세요."></textarea>
+          </div>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">견적 요청 보내기</button>
+          <span class="form-note">영업일 기준 24시간 내 회신을 목표로 합니다.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- ========== FBA PANEL ========== -->
+    <div class="panel" id="panel-fba">
+      <div class="msg" id="fbaMsg"></div>
+      <form id="fbaForm" action="https://formspree.io/f/mojzgaan" method="POST">
+        <input type="hidden" name="_subject" value="[ENOMAD] FBA 입고요청">
+        <input type="hidden" name="문의유형" value="FBA 입고요청">
+        <div class="form-grid">
+          <div class="fld">
+            <label>담당자명<span class="req">*</span></label>
+            <input type="text" name="담당자명" required placeholder="홍길동">
+          </div>
+          <div class="fld">
+            <label>이메일<span class="req">*</span></label>
+            <input type="email" name="email" required placeholder="name@company.com">
+          </div>
+          <div class="fld">
+            <label>Shipment ID / Plan</label>
+            <input type="text" name="ShipmentID" placeholder="FBA15XXXXXXX">
+          </div>
+          <div class="fld">
+            <label>목적지 FBA 센터</label>
+            <input type="text" name="FBA센터" placeholder="예: ONT8, LAX9">
+          </div>
+          <div class="fld">
+            <label>ASIN / FNSKU</label>
+            <input type="text" name="ASIN" placeholder="ASIN 또는 FNSKU">
+          </div>
+          <div class="fld">
+            <label>박스 수 / 총 중량</label>
+            <input type="text" name="수량중량" placeholder="예: 24박스 / 410kg">
+          </div>
+          <div class="fld full">
+            <label>입고 요청사항</label>
+            <textarea name="요청사항" placeholder="라벨링(FNSKU·카톤), 분할 입고, 검수, 희망 입고일 등을 적어주세요."></textarea>
+          </div>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">입고요청 보내기</button>
+          <span class="form-note">3PL 경유 라벨링·분할 입고가 필요하면 함께 적어주세요.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- ========== TRACK PANEL ========== -->
+    <div class="panel" id="panel-track">
+      <div class="track-box">
+        <div class="ic">📦</div>
+        <h3>화물추적</h3>
+        <p>온라인 실시간 추적 시스템은 준비 중입니다. 현재는 담당자가 직접 진행 상황을 안내해 드립니다. 운송 번호(B/L, AWB, Shipment ID)를 알려주시면 빠르게 확인해 드립니다.</p>
+        <div class="track-form">
+          <input type="text" id="trackNo" placeholder="B/L · AWB · Shipment ID">
+          <a href="#" class="btn btn-solid" id="trackAsk">담당자에게 문의</a>
+        </div>
+        <p style="margin-top:18px;font-size:13px">또는 <a href="mailto:sel@enomad.co.kr" style="color:var(--teal-deep);font-weight:600">sel@enomad.co.kr</a> 로 운송 번호를 보내주세요.</p>
+      </div>
+    </div>
+
+    <!-- ========== INFO PANEL ========== -->
+    <div class="panel" id="panel-info">
+      <div class="info-grid">
+        <div class="info">
+          <div class="k">Email</div>
+          <h4>이메일 문의</h4>
+          <p><a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a></p>
+        </div>
+        <div class="info">
+          <div class="k">HQ</div>
+          <h4>한국 본사</h4>
+          <p>인천국제공항(ICN) 기준 운영</p>
+        </div>
+        <div class="info">
+          <div class="k">USA</div>
+          <h4>미국 거점</h4>
+          <p>LA Vernon · Miami Doral</p>
+        </div>
+        <div class="info">
+          <div class="k">Mexico</div>
+          <h4>멕시코</h4>
+          <p>멕시코시티 익스프레스 루트</p>
+        </div>
+        <div class="info">
+          <div class="k">China</div>
+          <h4>중국 지사</h4>
+          <p>직영 거점 운영</p>
+        </div>
+        <div class="info">
+          <div class="k">Hours</div>
+          <h4>응대 시간</h4>
+          <p>영업일 기준 24시간 내 회신 목표</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko"> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="../services/fba-air.html">FBA 항공</a>
+        <a href="../services/fba-ocean.html">FBA 해상</a>
+        <a href="../services/fda.html">FDA 통관</a>
+        <a href="../services/fulfillment.html">3PL 풀필먼트</a>
+        <a href="../services/mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="../about.html">회사소개</a>
+        <a href="../network.html">네트워크</a>
+        <a href="../resources/">자료실 (AI Lab)</a>
+        <a href="index.html">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="index.html#quote">견적문의</a>
+        <a href="index.html#track">화물추적</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+
+  // tabs
+  const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');
+  function activate(name){
+    tabs.forEach(t=>t.classList.toggle('on',t.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('on',p.id==='panel-'+name));
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>{activate(t.dataset.tab);history.replaceState(null,'','#'+t.dataset.tab);}));
+  // open tab from hash (#quote / #track / #fba / #info)
+  const h=(location.hash||'').replace('#','');
+  if(['quote','fba','track','info'].includes(h)) activate(h);
+  document.getElementById('navTrack').addEventListener('click',e=>{activate('track');});
+
+  // AJAX submit to Formspree (stays on page, shows message)
+  function wire(formId,msgId){
+    const form=document.getElementById(formId),msg=document.getElementById(msgId);
+    form.addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const btn=form.querySelector('.btn-submit');btn.disabled=true;btn.textContent='보내는 중…';
+      msg.className='msg';
+      try{
+        const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+        if(res.ok){
+          msg.textContent='문의가 정상적으로 접수되었습니다. 빠르게 회신드리겠습니다.';
+          msg.className='msg ok';form.reset();window.scrollTo({top:msg.offsetTop-120,behavior:'smooth'});
+        }else{
+          const d=await res.json().catch(()=>({}));
+          msg.textContent=(d.errors?d.errors.map(x=>x.message).join(', '):'전송에 실패했습니다. 잠시 후 다시 시도하거나 sel@enomad.co.kr 로 보내주세요.');
+          msg.className='msg err';
+        }
+      }catch(err){
+        msg.textContent='네트워크 오류로 전송하지 못했습니다. sel@enomad.co.kr 로 보내주세요.';
+        msg.className='msg err';
+      }finally{btn.disabled=false;btn.textContent=formId==='quoteForm'?'견적 요청 보내기':'입고요청 보내기';}
+    });
+  }
+  wire('quoteForm','quoteMsg');
+  wire('fbaForm','fbaMsg');
+
+  // track: prefill mailto with tracking number
+  document.getElementById('trackAsk').addEventListener('click',e=>{
+    e.preventDefault();
+    const no=(document.getElementById('trackNo').value||'').trim();
+    const subj=encodeURIComponent('[ENOMAD] 화물추적 문의'+(no?(' - '+no):''));
+    const body=encodeURIComponent('운송 번호: '+(no||'(입력해주세요)')+'\n\n진행 상황을 확인 부탁드립니다.');
+    location.href='mailto:sel@enomad.co.kr?subject='+subj+'&body='+body;
+  });
+</script>
+</body>
+</html>

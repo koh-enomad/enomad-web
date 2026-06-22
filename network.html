@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>네트워크 · ENOMAD 이노마드</title>
+<meta name="description" content="ENOMAD 글로벌 네트워크. 한국 HQ·중국·미국(LA Vernon·Miami Doral)·멕시코시티 4개국 직영 거점과 ICN→LAX/MIA 항공 루트, 검증된 파트너 네트워크.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/service.css">
+<style>
+/* hero */
+.n-hero{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.n-hero .wrap{position:relative;z-index:2;padding:54px 28px 30px}
+.n-hero .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;color:#7FD4E0;text-transform:uppercase}
+.n-hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4.2vw,46px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:18px;max-width:720px}
+.n-hero p{margin-top:16px;font-size:16.5px;color:#BFE0E5;max-width:580px;line-height:1.7}
+
+/* map */
+.mapwrap{background:var(--teal-ink);padding-bottom:56px;position:relative;overflow:hidden}
+.mapbox{position:relative;max-width:1120px;margin:0 auto;padding:0 28px}
+.map-inner{position:relative;border:1px solid rgba(127,212,224,.18);border-radius:18px;background:rgba(8,40,46,.4);overflow:hidden}
+.map-inner svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;justify-content:center}
+.legend .it{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:12px;color:#9FD6DE}
+.legend .sw{width:11px;height:11px;border-radius:50%}
+.legend .l-hq{background:#7FD4E0}
+.legend .l-wh{background:#E0883B}
+.legend .l-air{width:18px;height:2px;border-radius:0;background:#7FD4E0}
+.legend .l-sea{width:18px;height:2px;border-radius:0;background:repeating-linear-gradient(90deg,#5BBECB 0 4px,transparent 4px 7px)}
+
+/* hubs grid */
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hub{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:24px;transition:.2s}
+.hub:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+.hub .flag{font-size:24px}
+.hub .tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:.08em;margin-top:10px}
+.hub h3{font-size:18px;font-weight:700;margin-top:6px;letter-spacing:-.01em}
+.hub .role{font-size:13px;color:var(--teal-deep);font-weight:600;margin-top:4px}
+.hub p{font-size:13.5px;color:var(--mute);margin-top:10px;line-height:1.6}
+
+/* routes */
+.routes{background:var(--paper-2)}
+.route-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.rt{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;align-items:center;gap:18px}
+.rt .ic{width:46px;height:46px;border-radius:11px;background:rgba(59,156,173,.1);display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.rt .path{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--teal-ink);letter-spacing:.02em}
+.rt .desc{font-size:13px;color:var(--mute);margin-top:4px}
+.rt .lead{margin-left:auto;text-align:right;flex-shrink:0}
+.rt .lead .v{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:22px;color:var(--teal-deep);line-height:1}
+.rt .lead .u{font-size:11px;color:var(--mute);font-family:'Space Mono',monospace}
+
+/* warehouse spec */
+.wh-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.whc{border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--white)}
+.whc .loc{font-family:'Space Mono',monospace;font-size:12px;color:var(--amber);letter-spacing:.06em}
+.whc h3{font-size:21px;font-weight:700;margin-top:8px;letter-spacing:-.01em}
+.whc .sub{font-size:13.5px;color:var(--teal-deep);font-weight:600;margin-top:4px}
+.whc ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px}
+.whc li{font-size:14px;color:var(--mute);padding-left:18px;position:relative;line-height:1.5}
+.whc li:before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+/* partners */
+.partners{background:var(--paper-2)}
+.pt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pt{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.pt h4{font-size:16px;font-weight:700;color:var(--teal-ink)}
+.pt p{font-size:12.5px;color:var(--mute);margin-top:7px;line-height:1.5}
+
+@media(max-width:920px){
+  .hub-grid{grid-template-columns:1fr 1fr}
+  .route-grid,.wh-grid{grid-template-columns:1fr}
+  .pt-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hub-grid{grid-template-columns:1fr}
+  .rt{flex-wrap:wrap}
+  .rt .lead{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="about.html">회사소개</a>
+      <a href="services/">서비스</a>
+      <a href="network.html" class="on">네트워크</a>
+      <a href="resources/">자료실</a>
+      <a href="contact/">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact/#track" class="btn btn-ghost">화물추적</a>
+      <a href="contact/" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="about.html">회사소개</a>
+  <a href="services/">서비스</a>
+  <a href="network.html">네트워크</a>
+  <a href="resources/">자료실</a>
+  <a href="contact/">문의</a>
+  <a href="contact/" class="btn btn-solid">견적문의</a>
+</div>
+
+<!-- HERO -->
+<section class="n-hero">
+  <div class="wrap">
+    <div class="crumb" style="color:#7FD4E0"><a href="index.html" style="color:#7FD4E0">HOME</a> / NETWORK</div>
+    <div class="kick" style="margin-top:16px">Global Logistics Network</div>
+    <h1>4개국 직영 거점으로<br>한국에서 중남미까지 연결합니다</h1>
+    <p>한국 HQ, 중국, 미국 동·서부 2창고, 멕시코시티 현지법인. 중간 브로커 없이 출발지부터 도착지까지 한 팀이 책임지는 직영 네트워크입니다.</p>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="mapwrap">
+  <div class="mapbox">
+    <div class="map-inner">
+      <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#7FD4E0" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#7FD4E0" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- dotted world silhouette (stylized continents via dot grid blocks) -->
+        <g fill="#2C6470" opacity=".55">
+          <!-- North America -->
+          <g>
+            <circle cx="150" cy="120" r="3"/><circle cx="165" cy="120" r="3"/><circle cx="180" cy="120" r="3"/><circle cx="195" cy="120" r="3"/><circle cx="135" cy="135" r="3"/><circle cx="150" cy="135" r="3"/><circle cx="165" cy="135" r="3"/><circle cx="180" cy="135" r="3"/><circle cx="195" cy="135" r="3"/><circle cx="210" cy="135" r="3"/><circle cx="150" cy="150" r="3"/><circle cx="165" cy="150" r="3"/><circle cx="180" cy="150" r="3"/><circle cx="195" cy="150" r="3"/><circle cx="210" cy="150" r="3"/><circle cx="225" cy="150" r="3"/><circle cx="165" cy="165" r="3"/><circle cx="180" cy="165" r="3"/><circle cx="195" cy="165" r="3"/><circle cx="210" cy="165" r="3"/><circle cx="225" cy="165" r="3"/><circle cx="180" cy="180" r="3"/><circle cx="195" cy="180" r="3"/><circle cx="210" cy="180" r="3"/><circle cx="195" cy="195" r="3"/><circle cx="210" cy="195" r="3"/>
+          </g>
+          <!-- Central America / Mexico -->
+          <g>
+            <circle cx="200" cy="210" r="3"/><circle cx="215" cy="210" r="3"/><circle cx="210" cy="225" r="3"/><circle cx="225" cy="225" r="3"/><circle cx="225" cy="240" r="3"/><circle cx="240" cy="240" r="3"/>
+          </g>
+          <!-- South America -->
+          <g>
+            <circle cx="250" cy="260" r="3"/><circle cx="265" cy="260" r="3"/><circle cx="255" cy="275" r="3"/><circle cx="270" cy="275" r="3"/><circle cx="285" cy="275" r="3"/><circle cx="260" cy="290" r="3"/><circle cx="275" cy="290" r="3"/><circle cx="290" cy="290" r="3"/><circle cx="265" cy="305" r="3"/><circle cx="280" cy="305" r="3"/><circle cx="270" cy="320" r="3"/><circle cx="285" cy="320" r="3"/><circle cx="275" cy="335" r="3"/><circle cx="278" cy="350" r="3"/>
+          </g>
+          <!-- Europe -->
+          <g>
+            <circle cx="500" cy="120" r="3"/><circle cx="515" cy="120" r="3"/><circle cx="530" cy="120" r="3"/><circle cx="500" cy="135" r="3"/><circle cx="515" cy="135" r="3"/><circle cx="530" cy="135" r="3"/><circle cx="545" cy="135" r="3"/><circle cx="510" cy="150" r="3"/><circle cx="525" cy="150" r="3"/><circle cx="540" cy="150" r="3"/>
+          </g>
+          <!-- Africa -->
+          <g>
+            <circle cx="510" cy="200" r="3"/><circle cx="525" cy="200" r="3"/><circle cx="540" cy="200" r="3"/><circle cx="555" cy="200" r="3"/><circle cx="515" cy="215" r="3"/><circle cx="530" cy="215" r="3"/><circle cx="545" cy="215" r="3"/><circle cx="560" cy="215" r="3"/><circle cx="525" cy="230" r="3"/><circle cx="540" cy="230" r="3"/><circle cx="555" cy="230" r="3"/><circle cx="530" cy="245" r="3"/><circle cx="545" cy="245" r="3"/><circle cx="535" cy="260" r="3"/><circle cx="548" cy="260" r="3"/><circle cx="540" cy="275" r="3"/>
+          </g>
+          <!-- Asia -->
+          <g>
+            <circle cx="620" cy="120" r="3"/><circle cx="635" cy="120" r="3"/><circle cx="650" cy="120" r="3"/><circle cx="665" cy="120" r="3"/><circle cx="680" cy="120" r="3"/><circle cx="695" cy="120" r="3"/><circle cx="710" cy="120" r="3"/><circle cx="725" cy="120" r="3"/><circle cx="620" cy="135" r="3"/><circle cx="635" cy="135" r="3"/><circle cx="650" cy="135" r="3"/><circle cx="665" cy="135" r="3"/><circle cx="680" cy="135" r="3"/><circle cx="695" cy="135" r="3"/><circle cx="710" cy="135" r="3"/><circle cx="725" cy="135" r="3"/><circle cx="740" cy="135" r="3"/><circle cx="640" cy="150" r="3"/><circle cx="655" cy="150" r="3"/><circle cx="670" cy="150" r="3"/><circle cx="685" cy="150" r="3"/><circle cx="700" cy="150" r="3"/><circle cx="715" cy="150" r="3"/><circle cx="730" cy="150" r="3"/><circle cx="660" cy="165" r="3"/><circle cx="675" cy="165" r="3"/><circle cx="690" cy="165" r="3"/><circle cx="705" cy="165" r="3"/><circle cx="720" cy="165" r="3"/>
+          </g>
+          <!-- Australia -->
+          <g>
+            <circle cx="780" cy="300" r="3"/><circle cx="795" cy="300" r="3"/><circle cx="810" cy="300" r="3"/><circle cx="785" cy="315" r="3"/><circle cx="800" cy="315" r="3"/><circle cx="815" cy="315" r="3"/>
+          </g>
+        </g>
+
+        <!-- ROUTES -->
+        <!-- ICN(745,150) -> LAX(180,165) air -->
+        <path d="M745,150 Q450,60 180,165" fill="none" stroke="#7FD4E0" stroke-width="2" stroke-dasharray="600" stroke-dashoffset="600">
+          <animate attributeName="stroke-dashoffset" from="600" to="0" dur="2.4s" fill="freeze"/>
+        </path>
+        <!-- ICN -> MIA(245,205) air -->
+        <path d="M745,150 Q480,40 245,205" fill="none" stroke="#7FD4E0" stroke-width="1.5" stroke-dasharray="650" stroke-dashoffset="650" opacity=".7">
+          <animate attributeName="stroke-dashoffset" from="650" to="0" dur="2.8s" fill="freeze"/>
+        </path>
+        <!-- LAX -> Mexico City(220,225) -->
+        <path d="M180,165 Q195,200 220,225" fill="none" stroke="#7FD4E0" stroke-width="1.5" stroke-dasharray="80" stroke-dashoffset="80">
+          <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1.2s" begin="1s" fill="freeze"/>
+        </path>
+        <!-- China(690,160) -> ICN small -->
+        <path d="M690,160 Q720,150 745,150" fill="none" stroke="#5BBECB" stroke-width="1.2" stroke-dasharray="4 4" opacity=".6"/>
+        <!-- Mexico -> South America (future, dashed) -->
+        <path d="M220,225 Q235,245 265,275" fill="none" stroke="#5BBECB" stroke-width="1.2" stroke-dasharray="4 4" opacity=".45"/>
+
+        <!-- NODES -->
+        <!-- ICN HQ -->
+        <circle cx="745" cy="150" r="22" fill="url(#glow)"/>
+        <circle cx="745" cy="150" r="6" fill="#7FD4E0"/>
+        <circle cx="745" cy="150" r="11" fill="none" stroke="#7FD4E0" stroke-width="1" opacity=".5"/>
+        <text x="745" y="128" fill="#fff" font-family="'Space Mono',monospace" font-size="13" font-weight="700" text-anchor="middle">ICN · HQ</text>
+        <text x="745" y="172" fill="#BFE0E5" font-family="'Space Mono',monospace" font-size="10" text-anchor="middle">Korea</text>
+
+        <!-- China -->
+        <circle cx="690" cy="160" r="5" fill="#7FD4E0"/>
+        <text x="690" y="183" fill="#BFE0E5" font-family="'Space Mono',monospace" font-size="10" text-anchor="middle">China</text>
+
+        <!-- LA Vernon -->
+        <circle cx="180" cy="165" r="6" fill="#E0883B"/>
+        <text x="180" y="145" fill="#fff" font-family="'Space Mono',monospace" font-size="12" font-weight="700" text-anchor="middle">LA · Vernon</text>
+
+        <!-- Miami -->
+        <circle cx="245" cy="205" r="6" fill="#E0883B"/>
+        <text x="262" y="200" fill="#fff" font-family="'Space Mono',monospace" font-size="12" font-weight="700" text-anchor="start">Miami · Doral</text>
+
+        <!-- Mexico City -->
+        <circle cx="220" cy="225" r="22" fill="url(#glow)"/>
+        <circle cx="220" cy="225" r="6" fill="#7FD4E0"/>
+        <circle cx="220" cy="225" r="11" fill="none" stroke="#7FD4E0" stroke-width="1" opacity=".5"/>
+        <text x="220" y="252" fill="#fff" font-family="'Space Mono',monospace" font-size="12" font-weight="700" text-anchor="middle">Mexico City</text>
+        <text x="220" y="266" fill="#7FD4E0" font-family="'Space Mono',monospace" font-size="9" text-anchor="middle">★ 7 DAYS</text>
+      </svg>
+    </div>
+    <div class="legend">
+      <div class="it"><span class="sw l-hq"></span> 직영 거점 (HQ·법인)</div>
+      <div class="it"><span class="sw l-wh"></span> 미국 창고</div>
+      <div class="it"><span class="sw l-air"></span> 항공 루트</div>
+      <div class="it"><span class="sw l-sea"></span> 연계·확장 루트</div>
+    </div>
+  </div>
+</div>
+
+<!-- HUBS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Direct Hubs</div>
+      <h2>4개국 직영 거점</h2>
+      <p>각 거점이 직영이라 통관·창고·배송의 책임 소재가 한 곳으로 모입니다.</p>
+    </div>
+    <div class="hub-grid">
+      <div class="hub reveal">
+        <div class="flag">🇰🇷</div>
+        <div class="tag">HEADQUARTERS</div>
+        <h3>한국 본사</h3>
+        <div class="role">ICN 기준 · 서울 강서구</div>
+        <p>인천국제공항 출발 기준으로 집하·수출통관·적재를 직접 관리하는 본사 거점.</p>
+      </div>
+      <div class="hub reveal">
+        <div class="flag">🇨🇳</div>
+        <div class="tag">BRANCH</div>
+        <h3>중국 지사</h3>
+        <div class="role">직영 거점</div>
+        <p>중국발 화물과 소싱 물량을 연계하는 아시아 거점.</p>
+      </div>
+      <div class="hub reveal">
+        <div class="flag">🇺🇸</div>
+        <div class="tag">WEST COAST</div>
+        <h3>미국 서부 · LA Vernon</h3>
+        <div class="role">California 3PL</div>
+        <p>서부 FBA 센터 근접 창고. 보관·검수·라벨링과 B2B·B2C 출고를 운영합니다.</p>
+      </div>
+      <div class="hub reveal">
+        <div class="flag">🇺🇸</div>
+        <div class="tag">EAST / SOUTH</div>
+        <h3>미국 동부 · Miami Doral</h3>
+        <div class="role">Miami FTZ</div>
+        <p>동부·남부 커버 + FTZ 관세 유예. 중남미로 가는 게이트웨이 역할을 합니다.</p>
+      </div>
+      <div class="hub reveal">
+        <div class="flag">🇲🇽</div>
+        <div class="tag">LATAM CORE</div>
+        <h3>멕시코시티 현지법인</h3>
+        <div class="role">★ 자체법인 · 7일 급행</div>
+        <p>자체 현지법인으로 정식 통관을 직접 운영. 한국→멕시코를 7영업일에 연결합니다.</p>
+      </div>
+      <div class="hub reveal" style="background:var(--paper-2);border-style:dashed">
+        <div class="flag">🌐</div>
+        <div class="tag">EXPANDING</div>
+        <h3>확장 권역</h3>
+        <div class="role">남아공 · 유럽 · UAE</div>
+        <p>파트너 네트워크를 통한 신흥시장 확장 권역. 단계적으로 직영화를 검토합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section class="sec routes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Routes</div>
+      <h2>운영 루트</h2>
+      <p>실제 운영 중인 항공·해상 라인. 화물 특성과 일정에 맞춰 모드를 설계합니다.</p>
+    </div>
+    <div class="route-grid">
+      <div class="rt reveal">
+        <div class="ic">✈️</div>
+        <div>
+          <div class="path">ICN → LAX</div>
+          <div class="desc">미국 서부 · Amazon US FBA 직송</div>
+        </div>
+        <div class="lead"><div class="v">3–6</div><div class="u">DAYS</div></div>
+      </div>
+      <div class="rt reveal">
+        <div class="ic">✈️</div>
+        <div>
+          <div class="path">ICN → MIA</div>
+          <div class="desc">미국 동부·남부 · 중남미 게이트웨이</div>
+        </div>
+        <div class="lead"><div class="v">3–6</div><div class="u">DAYS</div></div>
+      </div>
+      <div class="rt reveal">
+        <div class="ic">🌎</div>
+        <div>
+          <div class="path">ICN → LAX → MEX</div>
+          <div class="desc">멕시코시티 급행 · 현지법인 정식 통관</div>
+        </div>
+        <div class="lead"><div class="v">7</div><div class="u">DAYS</div></div>
+      </div>
+      <div class="rt reveal">
+        <div class="ic">🚢</div>
+        <div>
+          <div class="path">KR → US (LCL / FCL)</div>
+          <div class="desc">대량·저회전 물량 · CBM 기준 단가 최적화</div>
+        </div>
+        <div class="lead"><div class="v">~4</div><div class="u">WEEKS</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAREHOUSE SPEC -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Warehouses</div>
+      <h2>미국 동·서부 2거점 창고</h2>
+      <p>서부와 동부를 함께 운영해 FBA 센터 위치와 배송권역에 맞춰 출고지를 선택합니다.</p>
+    </div>
+    <div class="wh-grid">
+      <div class="whc reveal">
+        <div class="loc">📍 WEST COAST</div>
+        <h3>LA Vernon</h3>
+        <div class="sub">California 3PL · 서부 거점</div>
+        <ul>
+          <li>서부 FBA 센터 근접 — 배송비·리드타임 최적화</li>
+          <li>보관·검수·FNSKU 라벨링·재포장</li>
+          <li>B2B·B2C·시딩·Removal 재상품화</li>
+          <li>FBA 분할 입고 및 멀티채널 출고</li>
+        </ul>
+      </div>
+      <div class="whc reveal">
+        <div class="loc">📍 EAST / SOUTH</div>
+        <h3>Miami Doral</h3>
+        <div class="sub">Miami FTZ · 동부·남부 + 중남미 관문</div>
+        <ul>
+          <li>동부·남부 FBA 커버 — 반대편 해안 배송비 절감</li>
+          <li>FTZ(자유무역지대) 관세 유예·장기 보관</li>
+          <li>중남미 확장의 환적 허브 (PortMiami)</li>
+          <li>멕시코·중남미 연계 운송 거점</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="sec partners">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Partner Network</div>
+      <h2>검증된 파트너 네트워크</h2>
+      <p>직영 거점 외에도, 실제 운영으로 검증된 파트너와 함께 미국 전역과 중남미를 연결합니다.</p>
+    </div>
+    <div class="pt-grid">
+      <div class="pt reveal">
+        <h4>Silicon2</h4>
+        <p>미국 내 FBA 배송 파트너</p>
+      </div>
+      <div class="pt reveal">
+        <h4>RMK Logistics</h4>
+        <p>BNS · PR Express<br>미국 배송 네트워크</p>
+      </div>
+      <div class="pt reveal">
+        <h4>California 3PL</h4>
+        <p>서부 풀필먼트 연계</p>
+      </div>
+      <div class="pt reveal">
+        <h4>레고쌤 · 서울익스프레스</h4>
+        <p>멕시코 K-Beauty B2B 파트너</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>우리 거점을 화주의 인프라로</h2>
+        <p>발송지·도착지만 알려주시면 어느 거점·루트가 최적인지 제안합니다.</p>
+      </div>
+      <a href="contact/" class="btn btn-amber">무료 견적 받기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko"> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="services/fba-air.html">FBA 항공</a>
+        <a href="services/fba-ocean.html">FBA 해상</a>
+        <a href="services/fda.html">FDA 통관</a>
+        <a href="services/fulfillment.html">3PL 풀필먼트</a>
+        <a href="services/mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="about.html">회사소개</a>
+        <a href="network.html">네트워크</a>
+        <a href="resources/">자료실 (AI Lab)</a>
+        <a href="contact/">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="tel:070-8657-0105">070-8657-0105</a>
+        <a href="contact/">견적문의</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*.05)+'s';io.observe(el);});
+</script>
+</body>
+</html>

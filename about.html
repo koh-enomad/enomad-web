@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회사소개 · ENOMAD 이노마드</title>
+<meta name="description" content="ENOMAD(이노마드) 회사소개. 북미 FBA 진입부터 미국 풀필먼트, 멕시코 7일 급행, 신흥시장까지 — 기업의 성장 여정을 함께하는 4단계 물류 파트너. 멕시코 자체 현지법인으로 한국→멕시코를 7영업일에 연결합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/service.css">
+<style>
+/* about hero */
+.a-hero{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.a-hero .wrap{position:relative;z-index:2;padding:64px 28px 70px}
+.a-hero .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;color:#7FD4E0;text-transform:uppercase}
+.a-hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:20px;max-width:780px}
+.a-hero h1 em{font-style:normal;color:#7FD4E0}
+.a-hero .lead{margin-top:20px;font-size:17px;color:#BFE0E5;max-width:600px;line-height:1.75}
+.a-hero .chips{margin-top:30px;display:flex;gap:8px;flex-wrap:wrap}
+.a-hero .chip{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.04em;padding:7px 13px;border:1px solid rgba(127,212,224,.3);border-radius:99px;color:#9FD6DE}
+
+/* prologue / pain */
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pain{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
+.pain .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--amber);letter-spacing:.08em}
+.pain .q{font-size:17px;font-weight:700;margin-top:10px;color:var(--teal-ink);letter-spacing:-.01em}
+.pain p{font-size:14px;color:var(--mute);margin-top:9px}
+
+/* journey */
+.journey{background:var(--paper-2)}
+.stage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stage{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:24px 20px;position:relative;display:flex;flex-direction:column}
+.stage.core{border-color:var(--teal);box-shadow:0 18px 40px -24px rgba(31,107,121,.5)}
+.stage .badge{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--mute)}
+.stage.core .badge{color:var(--teal-deep);font-weight:700}
+.stage .num{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:34px;color:var(--teal);line-height:1;margin-top:6px}
+.stage.core .num{color:var(--teal-deep)}
+.stage h3{font-size:17px;font-weight:700;margin-top:10px;letter-spacing:-.01em}
+.stage ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px;flex:1}
+.stage li{font-size:13px;color:var(--mute);padding-left:14px;position:relative;line-height:1.5}
+.stage li:before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:700}
+.stage .loc{margin-top:14px;font-family:'Space Mono',monospace;font-size:11px;color:var(--teal-deep);border-top:1px solid var(--line);padding-top:12px}
+.stage .star{position:absolute;top:-10px;right:16px;background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;font-family:'Space Mono',monospace;letter-spacing:.05em}
+
+/* edge / mexico */
+.edge{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.edge .wrap{position:relative;z-index:2}
+.edge h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);color:#fff;letter-spacing:-.02em;line-height:1.12;max-width:720px}
+.edge h2 em{font-style:normal;color:#7FD4E0}
+.edge .sub{margin-top:16px;color:#BFE0E5;font-size:16px;max-width:560px}
+.edge-main{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.bignum{text-align:center}
+.bignum .v{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:96px;color:#7FD4E0;line-height:.9}
+.bignum .u{font-family:'Space Mono',monospace;font-size:13px;color:#9FD6DE;letter-spacing:.1em;margin-top:4px}
+.bignum .d{font-size:13px;color:#BFE0E5;margin-top:8px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.comp{border-radius:13px;padding:20px}
+.comp.bad{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.comp.good{background:rgba(127,212,224,.1);border:1px solid rgba(127,212,224,.35)}
+.comp .ttl{font-size:13px;font-weight:700;margin-bottom:12px;font-family:'Space Mono',monospace;letter-spacing:.04em}
+.comp.bad .ttl{color:#9DAFB2}
+.comp.good .ttl{color:#7FD4E0}
+.comp ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.comp li{font-size:13.5px;line-height:1.5;padding-left:20px;position:relative}
+.comp.bad li{color:#9DAFB2}
+.comp.bad li:before{content:"✕";position:absolute;left:0;color:#7A8A8D}
+.comp.good li{color:#DCEEF1}
+.comp.good li:before{content:"✓";position:absolute;left:0;color:#7FD4E0;font-weight:700}
+
+/* mexico SOP steps */
+.sop{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:30px}
+.sop:before{content:"";position:absolute;top:23px;left:9%;right:9%;height:1px;background:repeating-linear-gradient(90deg,rgba(127,212,224,.4) 0 7px,transparent 7px 13px)}
+.sop .s{text-align:center;position:relative}
+.sop .s .dot{width:46px;height:46px;border-radius:50%;background:#0E3B43;border:1px solid #7FD4E0;display:grid;place-items:center;margin:0 auto;position:relative;z-index:2;font-size:18px}
+.sop .s.core .dot{background:#7FD4E0}
+.sop .s h4{font-size:13px;font-weight:600;margin-top:12px;color:#EAF4F5}
+.sop .s p{font-size:11px;color:#9FD6DE;margin-top:3px;font-family:'Space Mono',monospace}
+
+/* stats */
+.statgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.stat-c{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 18px;text-align:center}
+.stat-c .v{font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:30px;color:var(--teal-deep);line-height:1}
+.stat-c .l{font-size:12.5px;color:var(--mute);margin-top:8px;line-height:1.4}
+
+/* why reasons */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why{border-top:2px solid var(--teal);padding-top:20px}
+.why .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.08em}
+.why h3{font-size:19px;font-weight:700;margin-top:9px;letter-spacing:-.01em;line-height:1.3}
+.why p{margin-top:11px;color:var(--mute);font-size:14.5px}
+
+/* contact info */
+.ci-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ci{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--white)}
+.ci .ic{font-size:22px}
+.ci h4{font-size:15px;font-weight:700;margin-top:12px}
+.ci .big{font-size:18px;font-weight:700;color:var(--teal-deep);margin-top:6px;font-family:'Space Mono',monospace}
+.ci p{font-size:13.5px;color:var(--mute);margin-top:6px}
+.ci a{color:var(--teal-deep);font-weight:600}
+
+@media(max-width:920px){
+  .pain-grid{grid-template-columns:1fr}
+  .stage-grid{grid-template-columns:1fr 1fr}
+  .edge-main{grid-template-columns:1fr;gap:28px}
+  .bignum .v{font-size:72px}
+  .sop{grid-template-columns:repeat(5,1fr)}
+  .sop .s h4{font-size:11px}
+  .statgrid{grid-template-columns:repeat(2,1fr)}
+  .why-grid,.ci-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .stage-grid{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .sop{grid-template-columns:repeat(2,1fr);gap:24px 0}
+  .sop:before{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="about.html" class="on">회사소개</a>
+      <a href="services/">서비스</a>
+      <a href="network.html">네트워크</a>
+      <a href="resources/">자료실</a>
+      <a href="contact/">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact/#track" class="btn btn-ghost">화물추적</a>
+      <a href="contact/" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="about.html">회사소개</a>
+  <a href="services/">서비스</a>
+  <a href="network.html">네트워크</a>
+  <a href="resources/">자료실</a>
+  <a href="contact/">문의</a>
+  <a href="contact/" class="btn btn-solid">견적문의</a>
+</div>
+
+<!-- HERO -->
+<section class="a-hero">
+  <div class="bgline" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 400">
+      <g stroke="#3B9CAD" stroke-width="1" opacity=".08">
+        <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="300" x2="1200" y2="300"/>
+        <line x1="300" y1="0" x2="300" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/><line x1="900" y1="0" x2="900" y2="400"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="crumb" style="color:#7FD4E0"><a href="index.html" style="color:#7FD4E0">HOME</a> / ABOUT</div>
+    <div class="kick" style="margin-top:16px">From North America to Latin America</div>
+    <h1>미국 FBA부터 <em>그 너머의 시장</em>까지,<br>성장 여정을 함께하는 물류 파트너</h1>
+    <p class="lead">북미 FBA 진입, 미국 풀필먼트 활용, 멕시코 7일 급행, 그리고 신흥시장 선점까지. 이노마드는 고객의 현재 단계를 진단하고 다음 단계의 물류 인프라를 함께 설계합니다.</p>
+    <div class="chips">
+      <span class="chip">EST. 2019</span>
+      <span class="chip">KR · CHINA · USA · MEXICO</span>
+      <span class="chip">7 DAYS TO MEXICO</span>
+      <span class="chip">FDA · FSVP</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROLOGUE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Prologue</div>
+      <h2>수출은 시작했습니다.<br>그런데, 그 다음은요?</h2>
+      <p>많은 한국 기업이 북미 시장에 진입합니다. 하지만 거점화·중남미 확장·신흥시장 선점에서 대부분 같은 벽에 부딪힙니다. 이노마드는 이 네 가지를 하나의 흐름으로 풀어냅니다.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain reveal">
+        <div class="n">PAIN 01 · FBA 진입</div>
+        <div class="q">"FBA, 어디서부터 시작하죠?"</div>
+        <p>운송·통관·관세·라벨·입고 규격 — 따로 견적받고 직접 조율해야 하는 부담.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="n">PAIN 02 · FBA 이후</div>
+        <div class="q">"FBA에 넣으면 끝인 줄 알았는데"</div>
+        <p>장기보관료·초과재고 수수료는 쌓이는데, Removal 재고를 처리할 곳이 없는 딜레마.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="n">PAIN 03 · 멕시코</div>
+        <div class="q">"멕시코, 믿고 맡길 곳이 없네요"</div>
+        <p>통관·비용·기간 — 검증된 현지 파트너 없이는 사고가 나도 책임 물을 곳이 없음.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="n">PAIN 04 · 시장 확장</div>
+        <div class="q">"다음 시장은 엄두가 안 납니다"</div>
+        <p>정보는 없고 비용은 비싸고 — 국가마다 다시 셋업해야 하는 진입장벽.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="sec journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Journey · 4-Stage Growth</div>
+      <h2>기업의 성장에 맞춰, 4단계로</h2>
+      <p>고객의 현재 단계를 진단하고, 다음 단계까지의 물류 인프라를 함께 설계합니다.</p>
+    </div>
+    <div class="stage-grid">
+      <div class="stage reveal">
+        <div class="badge">STAGE 01 · ENTRY</div>
+        <div class="num">01</div>
+        <h3>북미 시장 진입</h3>
+        <ul>
+          <li>7일 항공 특송 (관세 올인)</li>
+          <li>4주 해상 콘솔 (CBM당 올인)</li>
+          <li>화장품·식품 FDA·FSVP 대응</li>
+          <li>규격·라벨 사전 검수</li>
+        </ul>
+        <div class="loc">📍 ICN → LAX · Amazon US FBA</div>
+      </div>
+      <div class="stage reveal">
+        <div class="badge">STAGE 02 · FULFILLMENT</div>
+        <div class="num">02</div>
+        <h3>미국 풀필먼트 활용</h3>
+        <ul>
+          <li>B2B·B2C·시딩·Removal</li>
+          <li>FBA 보관비 절감·유연 재고</li>
+          <li>동부 Miami 창고 활용</li>
+          <li>Miami FTZ 관세 유예·장기보관</li>
+        </ul>
+        <div class="loc">📍 LA Vernon · Miami FTZ</div>
+      </div>
+      <div class="stage core reveal">
+        <div class="star">★ CORE EDGE</div>
+        <div class="badge">STAGE 03 · CORE</div>
+        <div class="num">03</div>
+        <h3>중남미 확장</h3>
+        <ul>
+          <li>멕시코 7일 급행 (영업일)</li>
+          <li>현지법인 정식 통관</li>
+          <li>Amazon MX FBA · 3PL</li>
+          <li>중남미 확장 중계 (Miami 연계)</li>
+        </ul>
+        <div class="loc">📍 멕시코 시티 · 자체법인</div>
+      </div>
+      <div class="stage reveal">
+        <div class="badge">STAGE 04 · GLOBAL +α</div>
+        <div class="num">04</div>
+        <h3>신흥시장 선점</h3>
+        <ul>
+          <li>남아공 Amazon FBA 세팅</li>
+          <li>유럽 물류 — EU 3PL·통관</li>
+          <li>UAE 등 신흥시장 진출</li>
+          <li>국가별 규제·라벨 대응</li>
+        </ul>
+        <div class="loc">📍 차세대 이커머스 시장</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE EDGE · MEXICO -->
+<section class="sec edge">
+  <div class="bgline" aria-hidden="true" style="opacity:.06">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 600">
+      <g stroke="#3B9CAD" stroke-width="1">
+        <line x1="0" y1="150" x2="1200" y2="150"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="450" x2="1200" y2="450"/>
+        <line x1="300" y1="0" x2="300" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/><line x1="900" y1="0" x2="900" y2="600"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow" style="color:#7FD4E0">★ Core Edge · Mexico Express</div>
+    <h2 style="margin-top:14px">북미는 누구나 합니다.<br><em>중남미는 우리만 1주 안에</em> 합니다.</h2>
+    <p class="sub">대부분의 물류 대행사는 미국까지입니다. 그 너머의 중남미는 통관·언어·환율·인프라가 발목을 잡습니다. 이노마드는 자체 현지법인으로 한국→멕시코를 단 1주에 연결합니다.</p>
+
+    <div class="edge-main">
+      <div class="bignum">
+        <div class="v">7</div>
+        <div class="u">DAYS · KR→MX</div>
+        <div class="d">영업일 기준 · Door-to-Door</div>
+      </div>
+      <div class="compare">
+        <div class="comp bad">
+          <div class="ttl">일반 물류 대행사</div>
+          <ul>
+            <li>미국까지만, 그 다음은 고객 책임</li>
+            <li>중남미 통관 시 현지 파트너 별도 계약</li>
+            <li>3–4주 이상 일반 리드타임</li>
+            <li>통관·창고·운송 책임 소재 분산</li>
+            <li>FBA Mexico SOP 미숙지로 거절 빈번</li>
+          </ul>
+        </div>
+        <div class="comp good">
+          <div class="ttl">ENOMAD 이노마드</div>
+          <ul>
+            <li>미국에서 중남미까지, 하나의 흐름</li>
+            <li>멕시코 자체 현지법인으로 정식 통관 직접 운영</li>
+            <li>리드타임 7일 (영업일) — 시즌 품목 선점</li>
+            <li>단일 책임 운영 — 픽업부터 현지 배송까지</li>
+            <li>Amazon MX 입고 SOP 내재화</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sop">
+      <div class="s"><div class="dot">📋</div><h4>한국 픽업</h4><p>STEP 01</p></div>
+      <div class="s"><div class="dot">🛃</div><h4>수출 통관</h4><p>STEP 02</p></div>
+      <div class="s core"><div class="dot">✈️</div><h4>직항 운송</h4><p>CORE</p></div>
+      <div class="s"><div class="dot">📥</div><h4>현지 통관</h4><p>STEP 04</p></div>
+      <div class="s"><div class="dot">🚚</div><h4>FBA·라스트마일</h4><p>STEP 05</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY STATS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why ENOMAD KOREA</div>
+      <h2>왜 이노마드 코리아입니까</h2>
+      <p>단순한 물류 대행이 아닌, 기업의 성장 여정에 동행하는 단 하나의 이유.</p>
+    </div>
+    <div class="statgrid" style="margin-bottom:44px">
+      <div class="stat-c reveal"><div class="v">7 Days</div><div class="l">한국 → 멕시코 평균 리드타임</div></div>
+      <div class="stat-c reveal"><div class="v">3대 허브</div><div class="l">CDMX · Miami FTZ · CA 3PL</div></div>
+      <div class="stat-c reveal"><div class="v">ALL</div><div class="l">B2B·B2C·시딩·Removal</div></div>
+      <div class="stat-c reveal"><div class="v">24/7</div><div class="l">실시간 화물 추적·대응</div></div>
+      <div class="stat-c reveal"><div class="v">FDA</div><div class="l">화장품·식품 규제 대응</div></div>
+    </div>
+    <div class="why-grid">
+      <div class="why reveal">
+        <div class="n">01</div>
+        <h3>FBA 진입,<br>쪼개지 않고 한 번에</h3>
+        <p>운송·통관·관세·라벨 — 따로 견적받을 필요 없는 관세 올인 특송. FDA·FSVP까지 한 흐름으로 처리합니다.</p>
+      </div>
+      <div class="why reveal">
+        <div class="n">02</div>
+        <h3>FBA 너머,<br>비용이 절감되는 풀필먼트</h3>
+        <p>B2B·B2C·시딩·Removal 가능한 자체 거점(LA Vernon·Miami)으로 현지 물류 비용을 절감합니다.</p>
+      </div>
+      <div class="why reveal">
+        <div class="n">03</div>
+        <h3>멕시코 1주,<br>그리고 그 너머까지</h3>
+        <p>자체 현지법인으로 멕시코를 7일에 연결하고, 남아공 FBA·유럽 물류·신흥시장까지 함께 갑니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Contact Us</div>
+      <h2>북미에서 중남미까지, 함께 갑니다</h2>
+      <p>귀사가 어느 단계에 있든 — 이노마드 코리아는 다음 시장까지 최적의 길을 함께 설계합니다.</p>
+    </div>
+    <div class="ci-grid">
+      <div class="ci">
+        <div class="ic">📞</div>
+        <h4>전화 문의 · 평일 09:00–18:00</h4>
+        <div class="big">070-8657-0105</div>
+      </div>
+      <div class="ci">
+        <div class="ic">✉️</div>
+        <h4>이메일 · 24시간 접수</h4>
+        <div class="big" style="font-size:15px"><a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a></div>
+      </div>
+      <div class="ci">
+        <div class="ic">📍</div>
+        <h4>본사 오피스</h4>
+        <p>서울시 강서구 공항대로 347, 8동 1112호</p>
+      </div>
+    </div>
+    <div class="cta-band" style="margin-top:34px">
+      <div>
+        <h2>지금 무료 물류 상담을 요청하세요</h2>
+        <p>발송 국가·플랫폼·품목·무게·CBM만 알려주시면 빠르게 회신드립니다.</p>
+      </div>
+      <a href="contact/" class="btn btn-amber">무료 견적 받기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko"> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="services/fba-air.html">FBA 항공</a>
+        <a href="services/fba-ocean.html">FBA 해상</a>
+        <a href="services/fda.html">FDA 통관</a>
+        <a href="services/fulfillment.html">3PL 풀필먼트</a>
+        <a href="services/mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="about.html">회사소개</a>
+        <a href="network.html">네트워크</a>
+        <a href="resources/">자료실 (AI Lab)</a>
+        <a href="contact/">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="tel:070-8657-0105">070-8657-0105</a>
+        <a href="contact/">견적문의</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*.05)+'s';io.observe(el);});
+</script>
+</body>
+</html>

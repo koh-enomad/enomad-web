@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자료실 · ENOMAD AI Lab · 이노마드</title>
+<meta name="description" content="ENOMAD AI Lab 실무 도구 모음. UPS 운임 계산기, Amazon FBA 쉬핑 플랜 가이드 등 화주가 견적 전 직접 계산하고 검토할 수 있는 물류 도구를 제공합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/service.css">
+<style>
+.r-hero{background:var(--teal-ink);color:#EAF4F5;position:relative;overflow:hidden}
+.r-hero .wrap{position:relative;z-index:2;padding:54px 28px 58px}
+.r-hero .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;color:#7FD4E0;text-transform:uppercase}
+.r-hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4.2vw,46px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:18px;max-width:680px}
+.r-hero p{margin-top:16px;font-size:16.5px;color:#BFE0E5;max-width:580px;line-height:1.7}
+
+/* category label */
+.cat-label{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.cat-label .t{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
+.cat-label .line{flex:1;height:1px;background:var(--line)}
+.cat-label .cnt{font-family:'Space Mono',monospace;font-size:12px;color:var(--mute)}
+
+/* tool cards */
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:50px}
+.tool{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:.2s;position:relative;overflow:hidden}
+.tool.live:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal)}
+.tool .top{display:flex;align-items:center;justify-content:space-between}
+.tool .ic{width:46px;height:46px;border-radius:12px;background:rgba(59,156,173,.1);display:grid;place-items:center;font-size:22px}
+.tool .status{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;padding:5px 10px;border-radius:99px;font-weight:700}
+.tool .status.on{background:rgba(59,156,173,.12);color:var(--teal-deep)}
+.tool .status.soon{background:var(--paper-2);color:var(--mute)}
+.tool h3{font-size:18px;font-weight:700;margin-top:18px;letter-spacing:-.01em}
+.tool .tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:.06em;margin-top:6px}
+.tool p{font-size:14px;color:var(--mute);margin-top:11px;line-height:1.6;flex:1}
+.tool .go{margin-top:18px;font-size:13.5px;font-weight:700;color:var(--teal-deep);display:inline-flex;align-items:center;gap:6px}
+.tool.live:hover .go{gap:10px}
+.tool.soon{opacity:.72}
+.tool.soon .go{color:var(--mute)}
+.tool a.cover{position:absolute;inset:0;z-index:1}
+
+/* blog band */
+.blog{background:var(--paper-2)}
+.blog-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.blog-card .ic{width:60px;height:60px;border-radius:15px;background:var(--teal-ink);display:grid;place-items:center;font-size:28px;flex-shrink:0}
+.blog-card .body{flex:1;min-width:260px}
+.blog-card h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.blog-card p{font-size:14.5px;color:var(--mute);margin-top:8px}
+
+@media(max-width:920px){.tool-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tool-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko">이노마드</span></a>
+    <nav class="nav-links">
+      <a href="../about.html">회사소개</a>
+      <a href="../services/">서비스</a>
+      <a href="../network.html">네트워크</a>
+      <a href="index.html" class="on">자료실</a>
+      <a href="../contact/">문의</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../contact/#track" class="btn btn-ghost">화물추적</a>
+      <a href="../contact/" class="btn btn-solid">견적문의</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob-menu" id="mobMenu">
+  <a href="../about.html">회사소개</a>
+  <a href="../services/">서비스</a>
+  <a href="../network.html">네트워크</a>
+  <a href="index.html">자료실</a>
+  <a href="../contact/">문의</a>
+  <a href="../contact/" class="btn btn-solid">견적문의</a>
+</div>
+
+<!-- HERO -->
+<section class="r-hero">
+  <div class="bgline" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 400">
+      <g stroke="#3B9CAD" stroke-width="1" opacity=".08">
+        <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="300" x2="1200" y2="300"/>
+        <line x1="300" y1="0" x2="300" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/><line x1="900" y1="0" x2="900" y2="400"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="crumb" style="color:#7FD4E0"><a href="../index.html" style="color:#7FD4E0">HOME</a> / RESOURCES</div>
+    <div class="kick" style="margin-top:16px">ENOMAD AI Lab</div>
+    <h1>화주가 견적 전에 직접 쓰는<br>실무 도구</h1>
+    <p>ENOMAD가 운영에 쓰는 도구를 화주에게 그대로 공개합니다. 운임을 직접 계산하고, FBA 입고 절차를 미리 검토하세요.</p>
+  </div>
+</section>
+
+<!-- CALCULATORS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="cat-label">
+      <span class="t">계산기</span>
+      <span class="line"></span>
+      <span class="cnt">CALCULATORS</span>
+    </div>
+    <div class="tool-grid">
+      <!-- UPS (LIVE) -->
+      <div class="tool live reveal">
+        <a class="cover" href="https://koh-enomad.github.io/ups-zone-map/" target="_blank" rel="noopener" aria-label="UPS 운임 계산기 열기"></a>
+        <div class="top">
+          <div class="ic">📦</div>
+          <span class="status on">● LIVE</span>
+        </div>
+        <h3>UPS 운임 계산기</h3>
+        <div class="tag">CA 출발 · Zone Map</div>
+        <p>발송 주를 클릭해 UPS Zone을 확인하고, 중량·존·수량으로 예상 운임을 자동 계산합니다. Ground Residential / Commercial 지원.</p>
+        <span class="go">도구 열기 ↗</span>
+      </div>
+
+      <!-- 부피중량 (SOON) -->
+      <div class="tool soon reveal">
+        <div class="top">
+          <div class="ic">⚖️</div>
+          <span class="status soon">준비중</span>
+        </div>
+        <h3>부피중량 계산기</h3>
+        <div class="tag">AIR · 6000 / 5000</div>
+        <p>실중량과 부피중량(에어카고 6,000 / 특송 5,000)을 비교해 청구중량을 즉시 산출합니다.</p>
+        <span class="go">준비중</span>
+      </div>
+
+      <!-- 관세 (SOON) -->
+      <div class="tool soon reveal">
+        <div class="top">
+          <div class="ic">🧾</div>
+          <span class="status soon">준비중</span>
+        </div>
+        <h3>미국 관세 계산기</h3>
+        <div class="tag">HS CODE · FOB</div>
+        <p>HS code별 관세율, Section 301, KORUS FTA 면세 여부를 FOB 기준으로 추정합니다.</p>
+        <span class="go">준비중</span>
+      </div>
+    </div>
+
+    <!-- GUIDES -->
+    <div class="cat-label">
+      <span class="t">가이드</span>
+      <span class="line"></span>
+      <span class="cnt">GUIDES</span>
+    </div>
+    <div class="tool-grid">
+      <!-- FBA Guide (LIVE) -->
+      <div class="tool live reveal">
+        <a class="cover" href="https://koh-enomad.github.io/amazon-fba-guide/" target="_blank" rel="noopener" aria-label="FBA 쉬핑 플랜 가이드 열기"></a>
+        <div class="top">
+          <div class="ic">📋</div>
+          <span class="status on">● LIVE</span>
+        </div>
+        <h3>Amazon FBA 쉬핑 플랜 가이드</h3>
+        <div class="tag">SEND TO AMAZON · Q&amp;A</div>
+        <p>셀러센트럴 Send to Amazon 4단계 워크플로, 박스 규격·라벨 기준, 15개 실무 Q&amp;A까지. 신규 셀러부터 재고 보충 담당자까지.</p>
+        <span class="go">가이드 열기 ↗</span>
+      </div>
+
+      <!-- FDA 가이드 (SOON) -->
+      <div class="tool soon reveal">
+        <div class="top">
+          <div class="ic">🧪</div>
+          <span class="status soon">준비중</span>
+        </div>
+        <h3>FDA 규제 체크리스트</h3>
+        <div class="tag">MoCRA · FSVP</div>
+        <p>화장품 MoCRA, 식품 FSVP 대응 요건을 항목별로 점검하는 체크리스트.</p>
+        <span class="go">준비중</span>
+      </div>
+
+      <!-- FBA 수수료 (SOON) -->
+      <div class="tool soon reveal">
+        <div class="top">
+          <div class="ic">💲</div>
+          <span class="status soon">준비중</span>
+        </div>
+        <h3>2026 FBA 수수료 레퍼런스</h3>
+        <div class="tag">FEE · 2026</div>
+        <p>2026년 기준 FBA 입고·보관·처리 수수료를 정리한 참고 자료.</p>
+        <span class="go">준비중</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec blog">
+  <div class="wrap">
+    <div class="cat-label">
+      <span class="t">인사이트</span>
+      <span class="line"></span>
+      <span class="cnt">BLOG</span>
+    </div>
+    <div class="blog-card reveal">
+      <div class="ic">📝</div>
+      <div class="body">
+        <h3>물류하는 용팀장 · 네이버 블로그</h3>
+        <p>현장 데이터와 실무 경험으로 풀어내는 K-Beauty·K-Food 수출 물류 인사이트. 멕시코·중남미 시장 분석부터 FBA 운영 노하우까지.</p>
+      </div>
+      <a href="../contact/" class="btn btn-solid">블로그 준비중</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>도구로 계산했다면, 이제 견적을</h2>
+        <p>발송지·도착지·품목만 알려주시면 실제 운임과 일정을 회신드립니다.</p>
+      </div>
+      <a href="../contact/" class="btn btn-amber">무료 견적 받기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="../index.html" class="logo"><span class="mark"></span>ENOMAD<span class="ko"> 이노마드</span></a>
+        <p>한국→미국·멕시코 Amazon FBA 포워딩 및 FDA 규제화물 풀필먼트. 4개국 직영 지사망의 글로벌 물류 파트너.</p>
+      </div>
+      <div>
+        <h5>서비스</h5>
+        <a href="../services/fba-air.html">FBA 항공</a>
+        <a href="../services/fba-ocean.html">FBA 해상</a>
+        <a href="../services/fda.html">FDA 통관</a>
+        <a href="../services/fulfillment.html">3PL 풀필먼트</a>
+        <a href="../services/mexico.html">멕시코·중남미</a>
+      </div>
+      <div>
+        <h5>회사</h5>
+        <a href="../about.html">회사소개</a>
+        <a href="../network.html">네트워크</a>
+        <a href="index.html">자료실 (AI Lab)</a>
+        <a href="../contact/">문의</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="mailto:sel@enomad.co.kr">sel@enomad.co.kr</a>
+        <a href="tel:070-8657-0105">070-8657-0105</a>
+        <a href="../contact/">견적문의</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ENOMAD (이노마드) · International Freight Forwarding</span>
+      <span>ICN · CHINA · LA VERNON · MIAMI DORAL · MEXICO CITY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamb=document.getElementById('hamb'),mob=document.getElementById('mobMenu');
+  hamb.addEventListener('click',()=>mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.05)+'s';io.observe(el);});
+</script>
+</body>
+</html>
